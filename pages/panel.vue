@@ -1,7 +1,7 @@
 <template>
   <div class="grid sm:grid-cols-2 h-full">
     <div
-      class="bg-gray-300 flex flex-col items-start text-gray-900 dark:(bg-gray-700 text-gray-50) m-4 p-4"
+      class="bg-gray-300 flex flex-col items-start rounded-sm text-gray-900 dark:(bg-gray-700 text-gray-50) m-4 p-4"
     >
       <h1 class="mb-2 font-bold">Biography</h1>
       <textarea
@@ -19,8 +19,36 @@
         {{ saveButBio.text }}
       </button>
     </div>
-    <div>
-      h
+    <div
+      class="bg-gray-300 otherstuff rounded-sm flex flex-col items-start text-gray-900 dark:(bg-gray-700 text-gray-50) m-4 p-4"
+    >
+      <h1 class="flex items-center text-lg font-bold">
+        <Icon name="papara" class="w-12 mr-2" />Papara
+      </h1>
+      <p>Enter your papara number here</p>
+
+      <input type="text" class="othertext" v-model="papara" />
+      <h1 class="flex items-center text-lg font-bold">
+        IBAN (International Banking Number)
+      </h1>
+      <p>Enter your IBAN here</p>
+
+      <input type="text" class="othertext" v-model="iban" />
+      <h1 class="flex items-center text-lg font-bold">
+        <Icon name="patreon" class="fill-current w-5 mr-2  text-hex-FF424D" />
+        Patreon
+      </h1>
+      <p>Enter your patreon username here</p>
+
+      <input type="text" class="othertext" v-model="patreon" />
+      <button
+        class="
+          w-full flex justify-center rounded-md p-2 mt-2 bg-green-500
+        "
+        @click="updateOtherInfo()"
+      >
+        Save
+      </button>
     </div>
   </div>
 </template>
@@ -79,6 +107,30 @@ export default {
               });
           });
       }
+    },
+    updateOtherInfo() {
+      var user = this.$fire.auth.currentUser;
+      this.$fire.firestore
+        .collection("users")
+        .doc(user.uid)
+        .update({
+          patreon: this.patreon,
+          papara: this.papara,
+          iban: this.iban
+        })
+        .then(doc => {
+          this.$fire.firestore
+            .collection("users")
+            .doc(user.uid)
+            .get()
+            .then(doc => {
+              (this.data = doc.data()),
+                (this.bio = doc.data().bio),
+                (this.papara = doc.data().papara),
+                (this.iban = doc.data().iban),
+                (this.patreon = doc.data().patreon);
+            });
+        });
     }
   },
   computed: {
@@ -102,4 +154,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.othertext {
+  @apply bg-gray-400 dark:bg-gray-600 rounded-md p-2 w-full mt-2 mb-4;
+}
+.otherstuff {
+  p {
+    @apply my-1;
+  }
+}
+</style>
