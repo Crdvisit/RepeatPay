@@ -10,7 +10,9 @@
           {{ user.seenusername }}
         </h1>
       </div>
-      <div class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full">
+      <div
+        class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full"
+      >
         <h1 class="font-bold">Biography</h1>
         <p class="text-md ">{{ user.bio }}</p>
       </div>
@@ -50,6 +52,63 @@ export default {
         banner
       };
     }
+  },
+  head() {
+    const title = `${this.data.seenusername}`;
+    const description = `Donate ${this.data.seenusername} on RepeatPay`;
+    const image = this.userImage.profile || "/icon.png";
+    const href = `https://repeatpay.ga/user/${this.data.linkusername}`;
+    const object = {
+      title,
+      meta: [
+        {
+          hid: "og:title",
+          name: "og:title",
+          content: title
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: description
+        },
+        {
+          hid: "og:url",
+          name: "og:url",
+          content: href
+        },
+        {
+          hid: "og:image",
+          name: "og:image",
+          content: image
+        },
+        // Twitter
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: title
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: description
+        },
+        {
+          hid: "twitter:image",
+          name: "twitter:image",
+          content: image
+        },
+      ].map(i => {
+        if (i.name && !i.property) i.property = i.name;
+        return i;
+      }),
+      link: [
+        {
+          rel: "canonical",
+          href
+        }
+      ]
+    };
+    return object;
   }
 };
 </script>

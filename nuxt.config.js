@@ -101,7 +101,8 @@ export default {
     '@nuxtjs/firebase',
   ],
   colorMode: {
-    classSuffix: ''
+    classSuffix: '',
+    preference: "dark",
   },
   content: {
     liveEdit: false
