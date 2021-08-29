@@ -6,8 +6,8 @@
       <DocNavbar />
       <div class="container">
         <div class="flex pt-16">
-          <DocBar class="w-auto" />
-          <Nuxt class="h-full overflow-auto my-8 w-full" />
+            <DocBar class="w-auto flex" />
+          <Nuxt class="h-full overflow-auto ml-32 my-8 w-full" />
         </div>
       </div>
     </div>
@@ -27,9 +27,7 @@
 </template>
 
 <script>
-export default {
-  
-};
+export default {};
 </script>
 
 <style>
