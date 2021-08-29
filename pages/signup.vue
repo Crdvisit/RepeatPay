@@ -92,7 +92,7 @@ export default {
     signUp() {
       var usr = this.username;
       var usrLower = usr.toLowerCase();
-      var dtbuser = this.$fire.firestore
+      this.$fire.firestore
         .collection("usernames")
         .doc(usrLower)
         .get()
