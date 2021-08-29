@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col h-[100vh]" v-else-if="$route.name.includes('panel')">
+    <div class="flex flex-col" v-else-if="$route.name.includes('panel')">
       <PanelNav class="w-full" />
       <Nuxt class="h-full" />
     </div>
