@@ -5,7 +5,7 @@
         dark:(bg-gray-900
         text-gray-50) items-center justify-between"
   >
-    <div>Hello, {{ data.username }}</div>
+    <div>Hello, {{ data.seenusername }}</div>
     <div class="flex">
       <button
         class="

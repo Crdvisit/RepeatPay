@@ -118,11 +118,14 @@ export default {
                 .collection("users")
                 .doc(cred.user.uid)
                 .set({
-                  username: usrLower,
+                  seenusername: this.username,
+                  linkusername: usrLower,
                   bio: "",
                   papara: "",
                   iban: "",
-                  patreon: ""
+                  patreon: "",
+                  banner: "",
+                  profile: "",
                 });
               this.$fire.firestore
                 .collection("usernames")

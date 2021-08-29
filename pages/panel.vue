@@ -41,6 +41,12 @@
       <p>Enter your patreon username here</p>
 
       <input type="text" class="othertext" v-model="patreon" />
+      <p>Enter your banner link (Minimum 1920x1080)</p>
+
+      <input type="text" class="othertext" v-model="banner" />
+      <p>Enter your profile picture link</p>
+
+      <input type="text" class="othertext" v-model="profile" />
       <button
         class="
           w-full flex justify-center rounded-md p-2 mt-2 bg-green-500
@@ -61,7 +67,9 @@ export default {
       bio: "",
       papara: "",
       iban: "",
-      patreon: ""
+      patreon: "",
+      profile: "",
+      banner: ""
     };
   },
   async fetch() {
@@ -79,6 +87,8 @@ export default {
             (this.papara = doc.data().papara),
             (this.iban = doc.data().iban),
             (this.patreon = doc.data().patreon);
+          this.banner = doc.data().banner;
+          this.profile = doc.data().profile;
         });
     }
   },
@@ -122,7 +132,9 @@ export default {
         .update({
           patreon: this.patreon,
           papara: this.papara,
-          iban: this.iban
+          iban: this.iban,
+          banner: this.banner,
+          profile: this.profile
         })
         .then(doc => {
           this.$fire.firestore
