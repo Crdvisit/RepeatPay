@@ -1,14 +1,16 @@
 <template>
   <div class="flex flex-col items-start">
     <img :src="userImage.banner" class="p-5 rounded-3xl" alt="" />
-    <div class="flex h-full w-full">
-      <div class="grid m-5 p-4 rounded-md bg-gray-500 w-full">
-        <h1 class="flex text-3xl bg-gray-700 items-center font-semibold">
+    <div class="grid justify-items-center sm:flex h-full w-full">
+      <div class="grid m-5 p-4 sm:w-full rounded-md bg-gray-700">
+        <h1
+          class="sm:flex grid justify-items-center text-3xl  items-center font-semibold"
+        >
           <img :src="userImage.profile" class="h-64 mr-4" alt="" />
           {{ user.seenusername }}
         </h1>
       </div>
-      <div class="bg-gray-600 my-5 mr-5 rounded-sm w-full p-4">
+      <div class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full">
         <h1 class="font-bold">Biography</h1>
         <p class="text-md ">{{ user.bio }}</p>
       </div>
