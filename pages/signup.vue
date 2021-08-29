@@ -1,9 +1,7 @@
 <template>
   <div class="grid justify-items-center items-center">
     <div class="grid w-3/6 space-y-3 text-left justify-items-start">
-      <form
-        class="grid w-full space-y-3 text-left justify-items-start"
-      >
+      <form class="grid w-full space-y-3 text-left justify-items-start">
         <h1 class="">Username</h1>
         <input
           type="text"
@@ -27,11 +25,10 @@
           placeholder="Enter your password"
         />
       </form>
-
+      <button @click="signUp()">Signup</button>
       <h1 class="flex font-semibold">
         Are you have a account?
         <nuxt-link class="text-blue-600 ml-2" to="/login">Login</nuxt-link>
-        <button @click="createUser()">Signup</button>
       </h1>
       <h1 class="font-semibold w-full text-center">Signup with</h1>
       <div class="flex items-center justify-center w-full space-x-4">
@@ -88,33 +85,59 @@ export default {
     return {
       email: "",
       password: "",
-      username: "",
+      username: ""
     };
   },
   methods: {
+    signUp() {
+      var usr = this.username;
+      var usrLower = usr.toLowerCase();
+      var dtbuser = this.$fire.firestore
+        .collection("usernames")
+        .doc(usrLower)
+        .get()
+        .then(doc => {
+          if (doc.data() === undefined) {
+            this.createUser();
+          } else {
+            alert(this.username + " is already registered");
+          }
+        });
+    },
     async createUser() {
       try {
         if (this.password.length < 6) {
           alert(" Password must be at least 6 characters ");
         } else {
+          var usr = this.username;
+          var usrLower = usr.toLowerCase();
           await this.$fire.auth
             .createUserWithEmailAndPassword(this.email, this.password)
-            .then((cred) => {
-              this.$fire.firestore.collection("users").doc(cred.user.uid).set({
-                username: this.username,
-                bio: "",
-                papara: "",
-                iban: "",
-                patreon: "",
-              });
+            .then(cred => {
+              this.$fire.firestore
+                .collection("users")
+                .doc(cred.user.uid)
+                .set({
+                  username: usrLower,
+                  bio: "",
+                  papara: "",
+                  iban: "",
+                  patreon: ""
+                });
+              this.$fire.firestore
+                .collection("usernames")
+                .doc(this.username)
+                .set({
+                  username: this.username
+                });
             })
-            .catch((err) => {
+            .catch(err => {
               alert(err.message);
             });
         }
       } catch (e) {}
-    },
-  },
+    }
+  }
 };
 </script>
 

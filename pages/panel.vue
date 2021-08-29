@@ -82,6 +82,12 @@ export default {
         });
     }
   },
+  asyncData({ redirect, $fire }) {
+    var user = $fire.auth.currentUser;
+    if (!user) {
+      redirect("/login");
+    }
+  },
   methods: {
     updateBio() {
       var user = this.$fire.auth.currentUser;
