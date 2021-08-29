@@ -72,7 +72,7 @@ export default {
     return {
       links: [
         { title: "Home", link: "/" },
-        { title: "Docs", link: "/docs" },
+        { title: "Docs", link: "/docs/gettingstarted" },
         { title: "Login", link: "/login" },
       ],
     };
