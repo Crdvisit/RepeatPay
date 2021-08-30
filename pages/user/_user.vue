@@ -27,7 +27,6 @@
 export default {
   data() {
     return {
-      username: this.$route.params.user,
       error: "",
       user: []
     };
