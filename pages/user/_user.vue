@@ -7,12 +7,12 @@
     >
       <h1 class="font-bold text-3xl">User not found</h1>
     </div>
-    <div v-else class="flex flex-col items-start">
+    <div v-else class="flex w-full flex-col items-start">
       <img :src="userImage.banner" class="px-5 pt-5 rounded-3xl" alt="" />
       <div class="grid justify-items-center sm:flex h-full w-full">
         <div class="grid m-5 p-4 sm:w-full rounded-md bg-gray-700">
           <h1
-            class="sm:flex grid justify-items-center text-3xl  items-center font-semibold"
+            class="sm:flex w-full grid justify-items-center text-3xl  items-center font-semibold"
           >
             <img :src="userImage.profile" class="h-64 mr-4" alt="" />
             {{ user.seenusername }}
