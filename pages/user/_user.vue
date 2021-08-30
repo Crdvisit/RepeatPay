@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  user() {
+  data() {
     return {
       user: [],
       username: this.$route.params.user,
@@ -36,7 +36,7 @@ export default {
       .get()
       .then(snapshot => {
         snapshot.docs.forEach(doc => {
-          this.user = doc.user();
+          this.user = doc.data();
         });
       })
       .catch(err => {
@@ -56,7 +56,7 @@ export default {
   head() {
     const title = `${this.user.seenusername}`;
     const description = `Donate ${this.user.seenusername} on RepeatPay`;
-    const image = this.userImage.profile || "/icon.png";
+    const image = "/icon.png";
     const href = `https://repeatpay.ga/user/${this.user.linkusername}`;
     const object = {
       title,
@@ -96,7 +96,7 @@ export default {
           hid: "twitter:image",
           name: "twitter:image",
           content: image
-        },
+        }
       ].map(i => {
         if (i.name && !i.property) i.property = i.name;
         return i;
