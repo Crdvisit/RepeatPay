@@ -29,8 +29,8 @@ export default {
       error: ""
     };
   },
-  mounted() {
-    this.$fire.firestore
+  async mounted() {
+    await this.$fire.firestore
       .collection("users")
       .where("linkusername", "==", this.username)
       .get()
