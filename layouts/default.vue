@@ -17,6 +17,7 @@
     </div>
     <div class="flex flex-col" v-else-if="$route.name.includes('user')">
       <Nuxt class="h-full" />
+      <NavUsrFooter/>
     </div>
     <div v-else class="flex flex-col h-[100vh] h-full">
       <NavDefault />
