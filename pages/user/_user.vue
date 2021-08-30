@@ -1,6 +1,12 @@
 <template>
-  <div >
+  <div class="grid justify-items-center">
     <div v-if="$fetchState.pending">Fetching...</div>
+    <div
+      v-else-if="user.seenusername === undefined"
+      class="flex flex-grow bg-gray-500 h-full justify-center items-center"
+    >
+      <h1 class="font-bold text-3xl">User not found</h1>
+    </div>
     <div v-else class="flex flex-col items-start">
       <img :src="userImage.banner" class="px-5 pt-5 rounded-3xl" alt="" />
       <div class="grid justify-items-center sm:flex h-full w-full">
@@ -57,60 +63,69 @@ export default {
   },
   head() {
     const title = `${this.user.seenusername}`;
+    const titlenf = `User not found`;
+
     const description = `Donate ${this.user.seenusername} on RepeatPay`;
-    const image = this.userImage.profile ||"/icon.png";
+    const image = this.userImage.profile || "/icon.png";
     const href = `https://repeatpay.ga/user/${this.user.linkusername}`;
-    const object = {
-      title,
-      meta: [
-        {
-          hid: "og:title",
-          name: "og:title",
-          content: title
-        },
-        {
-          hid: "og:description",
-          name: "og:description",
-          content: description
-        },
-        {
-          hid: "og:url",
-          name: "og:url",
-          content: href
-        },
-        {
-          hid: "og:image",
-          name: "og:image",
-          content: image
-        },
-        // Twitter
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: title
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: description
-        },
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: image
-        }
-      ].map(i => {
-        if (i.name && !i.property) i.property = i.name;
-        return i;
-      }),
-      link: [
-        {
-          rel: "canonical",
-          href
-        }
-      ]
-    };
-    return object;
+    if (this.user.seenusername === undefined) {
+      const object = {
+        titlenf
+      };
+      return object;
+    } else {
+      const object = {
+        title,
+        meta: [
+          {
+            hid: "og:title",
+            name: "og:title",
+            content: title
+          },
+          {
+            hid: "og:description",
+            name: "og:description",
+            content: description
+          },
+          {
+            hid: "og:url",
+            name: "og:url",
+            content: href
+          },
+          {
+            hid: "og:image",
+            name: "og:image",
+            content: image
+          },
+          // Twitter
+          {
+            hid: "twitter:title",
+            name: "twitter:title",
+            content: title
+          },
+          {
+            hid: "twitter:description",
+            name: "twitter:description",
+            content: description
+          },
+          {
+            hid: "twitter:image",
+            name: "twitter:image",
+            content: image
+          }
+        ].map(i => {
+          if (i.name && !i.property) i.property = i.name;
+          return i;
+        }),
+        link: [
+          {
+            rel: "canonical",
+            href
+          }
+        ]
+      };
+      return object;
+    }
   }
 };
 </script>

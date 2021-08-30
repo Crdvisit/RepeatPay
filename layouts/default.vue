@@ -15,8 +15,8 @@
       <PanelNav class="w-full" />
       <Nuxt class="h-full" />
     </div>
-    <div class="flex flex-col" v-else-if="$route.name.includes('user')">
-      <Nuxt class="h-full" />
+    <div class="flex flex-col min-h-[100vh]" v-else-if="$route.name.includes('user')">
+      <Nuxt class="h-full flex-grow" />
       <NavUsrFooter/>
     </div>
     <div v-else class="flex flex-col h-[100vh] h-full">
