@@ -2,7 +2,7 @@
   <div >
     <div v-if="$fetchState.pending">Fetching...</div>
     <div v-else class="flex flex-col items-start">
-      <img :src="userImage.banner" class="p-5 rounded-3xl" alt="" />
+      <img :src="userImage.banner" class="px-5 pt-5 rounded-3xl" alt="" />
       <div class="grid justify-items-center sm:flex h-full w-full">
         <div class="grid m-5 p-4 sm:w-full rounded-md bg-gray-700">
           <h1
@@ -58,7 +58,7 @@ export default {
   head() {
     const title = `${this.user.seenusername}`;
     const description = `Donate ${this.user.seenusername} on RepeatPay`;
-    const image = "/icon.png";
+    const image = this.userImage.profile ||"/icon.png";
     const href = `https://repeatpay.ga/user/${this.user.linkusername}`;
     const object = {
       title,
