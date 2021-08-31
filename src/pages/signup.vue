@@ -25,7 +25,12 @@
           placeholder="Enter your password"
         />
       </form>
-      <button @click="signUp()" class="w-full bg-gray-300 dark:bg-gray-700 rounded-md p-4">Signup</button>
+      <button
+        @click="signUp()"
+        class="w-full bg-gray-300 dark:bg-gray-700 rounded-md p-4"
+      >
+        Signup
+      </button>
       <h1 class="flex font-semibold">
         Are you have a account?
         <nuxt-link class="text-blue-600 ml-2" to="/login">Login</nuxt-link>
@@ -40,19 +45,22 @@ export default {
     return {
       email: "",
       password: "",
-      username: ""
+      username: "",
+      routes: ["signup", "login", "repeatpay", "panel", "docs" ]
     };
   },
   methods: {
     signUp() {
-      var usr = this.username;
-      var usrLower = usr.toLowerCase();
       this.$fire.firestore
         .collection("usernames")
-        .doc(usrLower)
+        .doc(this.username.toLowerCase())
         .get()
         .then(doc => {
-          if (doc.data() === undefined) {
+          if (
+            this.routes.includes(usrLower)
+          ) {
+            alert("haha ure sucha funny dude");
+          } else if (doc.data() === undefined) {
             this.createUser();
           } else {
             alert(this.username + " is already registered");
@@ -64,8 +72,6 @@ export default {
         if (this.password.length < 6) {
           alert(" Password must be at least 6 characters ");
         } else {
-          var usr = this.username;
-          var usrLower = usr.toLowerCase();
           await this.$fire.auth
             .createUserWithEmailAndPassword(this.email, this.password)
             .then(cred => {
@@ -74,21 +80,21 @@ export default {
                 .doc(cred.user.uid)
                 .set({
                   seenusername: this.username,
-                  linkusername: usrLower,
+                  linkusername: this.username.toLowerCase(),
                   bio: "",
                   papara: "",
                   iban: "",
                   patreon: "",
                   banner: "",
-                  profile: "",
+                  profile: ""
                 });
               this.$fire.firestore
                 .collection("usernames")
-                .doc(this.username)
+                .doc(this.username.toLowerCase())
                 .set({
-                  username: this.username
+                  username: this.username.toLowerCase(),
                 });
-              this.$router.push("/login")
+              this.$router.push("/login");
             })
             .catch(err => {
               alert(err.message);
