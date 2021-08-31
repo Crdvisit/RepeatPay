@@ -14,7 +14,7 @@
           class="grid justify-items-center sm:items-center sm:flex m-5 p-4 sm:w-full rounded-md bg-gray-300 bg-gray-900 dark:(bg-gray-700 text-gray-50)"
         >
           <img :src="userImage.profile" class="h-64 mr-4" alt="" />
-          <div class="grid justify-items-start ">
+          <div class="grid justify-items-start items-center">
             <h1
               class="sm:flex w-full grid justify-items-center text-3xl  items-center font-semibold"
             >
@@ -26,8 +26,7 @@
         <div
           class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full"
         >
-          <h1 class="font-bold">Biography</h1>
-          <p class="text-md ">{{ user.bio }}</p>
+          Hey guys
         </div>
       </div>
     </div>
