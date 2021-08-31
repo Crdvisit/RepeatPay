@@ -24,12 +24,14 @@
         <div
           class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full"
         >
-          <h1 class="font-bold">Donate</h1>
+          <h1 class="font-bold text-2xl">Donate</h1>
           <div v-if="getPapara">
-            <h1>Papara</h1>
+            <details>
+              <summary class="font-light">[Papara]</summary>
             <h1 >
               {{ user.papara }}
             </h1>
+            </details>
           </div>
         </div>
       </div>
