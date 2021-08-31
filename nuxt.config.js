@@ -11,7 +11,7 @@ export default {
   // Firebase configuration is imported from config/firebase.js
   firebase,
 
-  // Meta tags is imported from config/meta.js
+  // Meta tags is imported from config/head.js
   head,
   
   plugins: [],
