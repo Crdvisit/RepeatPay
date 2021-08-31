@@ -14,7 +14,7 @@
     >
       <div class="flex justify-between w-full items-center">
         <div class="flex items-end space-x-3">
-          <h1 class="font-bold text-3xl">RepeatPay</h1>
+          <h1 class="font-semibold text-3xl">RepeatPay</h1>
           <div class="flex items-end"></div>
         </div>
 

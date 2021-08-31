@@ -57,7 +57,7 @@ export default {
         .get()
         .then(doc => {
           if (
-            this.routes.includes(usrLower)
+            this.routes.includes(this.username.toLowerCase())
           ) {
             alert("haha ure sucha funny dude");
           } else if (doc.data() === undefined) {

@@ -4,7 +4,7 @@
   >
     <div class="flex justify-between items-center">
       <h1 class="font-normal text-lg">
-        RepeatPay Team - Rexulec - Mehmetali345Dev
+        RepeatPay Team
       </h1>
       <div class="space-x-5">
         <a href="https://github.com/rexulec/repeatpay">Github</a>
