@@ -10,13 +10,18 @@
     <div v-else class="flex w-full flex-col items-center">
       <img :src="userImage.banner" class="px-5 pt-5 rounded-3xl" alt="" />
       <div class="grid justify-items-center sm:flex h-full w-full">
-        <div class="grid m-5 p-4 sm:w-full rounded-md bg-gray-300 bg-gray-900 dark:(bg-gray-700 text-gray-50)">
-          <h1
-            class="sm:flex w-full grid justify-items-center text-3xl  items-center font-semibold"
-          >
-            <img :src="userImage.profile" class="h-64 mr-4" alt="" />
-            {{ user.seenusername }}
-          </h1>
+        <div
+          class="grid justify-items-center sm:items-center sm:flex m-5 p-4 sm:w-full rounded-md bg-gray-300 bg-gray-900 dark:(bg-gray-700 text-gray-50)"
+        >
+          <img :src="userImage.profile" class="h-64 mr-4" alt="" />
+          <div class="grid justify-items-start ">
+            <h1
+              class="sm:flex w-full grid justify-items-center text-3xl  items-center font-semibold"
+            >
+              {{ user.seenusername }}
+            </h1>
+            <p class="text-md">{{user.bio}}</p>
+          </div>
         </div>
         <div
           class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full"
