@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^2.1.1",
+    "@nuxtjs/dotenv": "^1.4.1",
     "nuxt-windicss": "^1.1.1"
   }
 }
