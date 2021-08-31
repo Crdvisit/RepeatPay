@@ -6,8 +6,8 @@
         p-4
         justify-between
         items-center
-        bg-gray-200
-        text-gray-900
+        bg-indigo-500
+        text-white
         dark:(bg-gray-900
         text-gray-50)
       "
@@ -23,14 +23,14 @@
             v-for="(link, index) in links"
             :key="`link-${index}`"
             :to="link.link"
-            class="bg-gray-300 p-2 rounded-xl dark:(bg-gray-800)"
+            class="bg-gray-700 p-2 rounded-xl dark:(bg-gray-800)"
             >{{ link.title }}</nuxt-link
           >
-          <div class="h-6 w-[0.1rem] bg-gray-400"></div>
+          <div class="h-6 w-[0.1rem] bg-gray-700"></div>
           <nuxt-link
             to="/signup"
             class="
-              bg-gray-300
+              bg-gray-700
               dark:(bg-gray-800)
               p-2
               flex
@@ -39,7 +39,7 @@
             "
             >Signup<Icon
               v-if="this.$colorMode.value === 'light'"
-              name="arrow-right-dark"
+              name="arrow-right-light"
               class="w-5 h-5 ml-1"/><Icon
               v-else
               name="arrow-right-light"
