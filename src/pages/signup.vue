@@ -60,6 +60,7 @@ export default {
   },
   methods: {
     signUp() {
+      var usernameRegex = /^[a-zA-Z0-9]+$/;
       this.$fire.firestore
         .collection("usernames")
         .doc(this.username.toLowerCase())
@@ -67,6 +68,10 @@ export default {
         .then(doc => {
           if (this.routes.includes(this.username.toLowerCase())) {
             alert("haha ure sucha funny dude");
+          } else if (!usernameRegex.test(this.username.toLowerCase())) {
+            alert(
+              "Please don't use special characters and letters in your username"
+            );
           } else if (doc.data() === undefined) {
             this.createUser();
           } else {

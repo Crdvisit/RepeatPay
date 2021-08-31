@@ -7,7 +7,7 @@
     >
       <h1 class="font-bold text-3xl">User not found</h1>
     </div>
-    <div v-else class="flex w-full flex-col items-start">
+    <div v-else class="flex w-full flex-col items-center">
       <img :src="userImage.banner" class="px-5 pt-5 rounded-3xl" alt="" />
       <div class="grid justify-items-center sm:flex h-full w-full">
         <div class="grid m-5 p-4 sm:w-full rounded-md bg-gray-300 bg-gray-900 dark:(bg-gray-700 text-gray-50)">
