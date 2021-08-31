@@ -52,7 +52,10 @@ export default {
         .doc(usrLower)
         .get()
         .then(doc => {
-          if (doc.data() === undefined) {
+          if(usrLower === 'signup' || usrLower === 'panel' || usrLower === 'login' || usrLower === 'index' || usrLower === 'docs' || usrLower === 'us' || usrLower === 'repeatpay'){
+            alert("haha ure sucha funny dude");
+          }
+          else if (doc.data() === undefined) {
             this.createUser();
           } else {
             alert(this.username + " is already registered");
