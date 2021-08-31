@@ -7,8 +7,8 @@
         RepeatPay Team
       </h1>
       <div class="space-x-5">
-        <a href="https://github.com/rexulec/repeatpay">Github</a>
-        <a href="/">Discord</a>
+        <a target="_blank" href="https://github.com/repeatpay/repeatpay">Github</a>
+        <a target="_blank" href="/">Discord</a>
       </div>
     </div>
   </div>
