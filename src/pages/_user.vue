@@ -1,5 +1,5 @@
 <template>
-  <div class="grid justify-items-center">
+  <div class="grid justify-items-center items-center">
     <div v-if="$fetchState.pending">Fetching...</div>
     <div
       v-else-if="user.seenusername === undefined"
@@ -8,15 +8,15 @@
       <h1 class="font-bold text-3xl">User not found</h1>
     </div>
     <div v-else class="flex w-full flex-col items-center">
-      <img :src="userImage.banner" class="px-5 pt-5 rounded-3xl" alt="" />
+      <img :src="userImage.banner" class="pt-5 rounded-5xl " alt="" />
       <div class="grid justify-items-center sm:flex h-full w-full">
         <div
-          class="grid justify-items-center sm:items-center sm:flex m-5 p-4 sm:w-full rounded-md bg-gray-300 bg-gray-900 dark:(bg-gray-700 text-gray-50)"
+          class="grid sm:flex m-5 p-4 sm:w-full rounded-md bg-gray-300 bg-gray-900 dark:(bg-gray-700 text-gray-50)"
         >
           <img :src="userImage.profile" class="h-64 mr-4" alt="" />
-          <div class="grid justify-items-start items-center">
+          <div class="">
             <h1
-              class="sm:flex w-full grid justify-items-center text-3xl  items-center font-semibold"
+              class="sm:flex w-full grid justify text-3xl font-semibold"
             >
               {{ user.seenusername }}
             </h1>
@@ -26,7 +26,8 @@
         <div
           class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full"
         >
-          Hey guys
+          <h1 class="font-bold">Biography</h1>
+          <p class="text-md ">{{ user.bio }}</p>
         </div>
       </div>
     </div>
