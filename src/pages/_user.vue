@@ -3,7 +3,7 @@
     <div v-if="$fetchState.pending">Fetching...</div>
     <div
       v-else-if="user.seenusername === undefined"
-      class="flex flex-grow bg-gray-500 h-full justify-center items-center"
+      class="flex flex-grow h-full justify-center items-center"
     >
       <h1 class="font-bold text-3xl">User not found</h1>
     </div>
