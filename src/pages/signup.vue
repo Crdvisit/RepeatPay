@@ -46,7 +46,16 @@ export default {
       email: "",
       password: "",
       username: "",
-      routes: ["signup", "login", "repeatpay", "panel", "docs" ]
+      routes: [
+        "signup",
+        "login",
+        "repeatpay",
+        "panel",
+        "docs",
+        "icon.png",
+        "favicon.ico",
+        "logo.svg"
+      ]
     };
   },
   methods: {
@@ -56,9 +65,7 @@ export default {
         .doc(this.username.toLowerCase())
         .get()
         .then(doc => {
-          if (
-            this.routes.includes(this.username.toLowerCase())
-          ) {
+          if (this.routes.includes(this.username.toLowerCase())) {
             alert("haha ure sucha funny dude");
           } else if (doc.data() === undefined) {
             this.createUser();
@@ -92,7 +99,7 @@ export default {
                 .collection("usernames")
                 .doc(this.username.toLowerCase())
                 .set({
-                  username: this.username.toLowerCase(),
+                  username: this.username.toLowerCase()
                 });
               this.$router.push("/login");
             })
