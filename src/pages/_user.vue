@@ -10,7 +10,7 @@
     <div v-else class="flex w-full flex-col items-start">
       <img :src="userImage.banner" class="px-5 pt-5 rounded-3xl" alt="" />
       <div class="grid justify-items-center sm:flex h-full w-full">
-        <div class="grid m-5 p-4 sm:w-full rounded-md bg-gray-700">
+        <div class="grid m-5 p-4 sm:w-full rounded-md bg-gray-300 bg-gray-900 dark:(bg-gray-700 text-gray-50)">
           <h1
             class="sm:flex w-full grid justify-items-center text-3xl  items-center font-semibold"
           >
