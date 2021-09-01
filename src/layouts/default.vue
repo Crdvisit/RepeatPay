@@ -6,7 +6,7 @@
       <DocNavbar />
       <div class="container">
         <div class="flex pt-16">
-            <DocBar class="w-auto flex" />
+          <DocBar class="w-auto flex" />
           <Nuxt class="h-full overflow-auto ml-32 my-8 w-full" />
         </div>
       </div>
@@ -15,9 +15,12 @@
       <PanelNav class="w-full" />
       <Nuxt class="h-full" />
     </div>
-    <div class="flex flex-col min-h-[100vh]" v-else-if="$route.name.includes('user')">
+    <div
+      class="flex flex-col min-h-[100vh]"
+      v-else-if="$route.name.includes('user')"
+    >
       <Nuxt class="h-full flex-grow" />
-      <NavUsrFooter/>
+      <NavUsrFooter />
     </div>
     <div v-else class="flex flex-col h-[100vh] h-full">
       <NavDefault />

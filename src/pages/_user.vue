@@ -10,12 +10,24 @@
     <div v-else class="flex w-full flex-col items-center">
       <img
         :src="userImage.banner"
-        class="w-11/12 h-96 mt-5 object-cover rounded-b-3xl"
+        class="w-11/12 h-96 my-5 object-cover rounded-3xl"
         alt=""
       />
-      <div class="grid justify-items-center sm:flex h-full w-full">
+      <div class="grid justify-items-center mb-5 sm:grid-cols-2 gap-4 mx-4 h-full">
         <div
-          class="grid sm:flex m-5 p-4 justify-items-center sm:w-full rounded-md bg-gray-300 dark:(bg-gray-700 text-gray-50)"
+          class="
+            grid
+            sm:flex
+            p-4
+            user
+            justify-items-center
+            items-center
+            rounded-md
+            bg-gray-300
+            dark:(bg-gray-700
+            text-gray-50)
+            transition ease-out duration-700
+          "
         >
           <img :src="userImage.profile" class="h-64 mr-4 rounded-2xl" alt="" />
           <div class="flex flex-col justify-center">
@@ -26,29 +38,33 @@
           </div>
         </div>
         <div
-          class="dark:bg-gray-700 bg-gray-300 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full"
+          class="
+            dark:bg-gray-700
+            bg-gray-300
+            rounded-md
+            space-y-4
+            p-4
+            grid w-full  
+        "
         >
           <h1 class="font-bold text-2xl">Donate</h1>
 
           <div v-if="getPapara">
-            <details>
-              <summary class="font-light">[ Papara ]</summary>
-              <h1>
-                {{ user.papara }}
-              </h1>
-            </details>
+            <h1 class="font-bold text-lg">Papara</h1>
+            <h1 class="mt-2">{{ user.papara }}</h1>
           </div>
 
           <div v-if="getIban">
-            <details>
-              <h1>
-                {{ user.iban }}
-              </h1>
-            </details>
+            <h1 class="font-bold text-lg">IBAN</h1>
+            <h1 class="mt-2">{{ user.iban }}</h1>
           </div>
 
           <div v-if="getPatreon">
-            <button class="px-6 py-4 bg-hex-ff424e rounded-xl flex">
+            <h1 class="font-bold text-lg">Support on</h1>
+
+            <button
+              class="px-6 py-4 bg-hex-ff424e mt-2 text-gray-50 rounded-xl flex"
+            >
               <Icon
                 name="patreon"
                 class="fill-current text-gray-50 mr-4 h-5"
@@ -121,7 +137,7 @@ export default {
 
     const description = `Donate ${this.user.seenusername} on RepeatPay`;
     const image = this.userImage.profile || "/icon.png";
-    const href = `https://repeatpay.ga/user/${this.user.linkusername}`;
+    const href = `https://repeatpay.ga/${this.user.linkusername}`;
     if (this.user.seenusername === undefined) {
       const object = {
         titlenf
@@ -185,7 +201,9 @@ export default {
 </script>
 
 <style>
-.banner {
-  background-size: cover; /* <------ */
+@media screen and (max-device-width: 950px) {
+  .user{
+    @apply grid justify-items-center text-center;
+  }
 }
 </style>
