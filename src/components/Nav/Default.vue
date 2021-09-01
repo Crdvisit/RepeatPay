@@ -24,7 +24,11 @@
             v-for="(link, index) in links"
             :key="`link-${index}`"
             :to="link.link"
-            class="bg-gray-300 p-2 rounded-xl dark:(bg-gray-800) transition ease-out duration-700 "
+            class="bg-gray-300 p-2 rounded-xl
+            dark:(bg-gray-800)
+            transition ease-out duration-700
+            hover:(dark:bg-gray-700 transition ease duration-300)
+            hover:(bg-gray-400 transition ease duration-300)"
             >{{ link.title }}</nuxt-link
           >
           <div class="h-6 w-[0.1rem] bg-gray-400"></div>
@@ -37,12 +41,15 @@
               flex
               rounded-xl
               items-center
-              transition ease-out duration-700 
+              transition ease-out duration-700
+              hover:(dark:bg-gray-700 transition ease duration-300)
+              hover:(bg-gray-400 transition ease duration-300)
             "
             >Signup<Icon
               v-if="this.$colorMode.value === 'light'"
               name="arrow-right-dark"
-              class="w-5 h-5 ml-1"/><Icon
+              class="w-5 h-5 ml-1
+              "/><Icon
               v-else
               name="arrow-right-light"
               class="w-5 h-5 ml-1"
@@ -92,7 +99,7 @@
           class="w-5 h-5 ml-1"/><Icon
           v-else
           name="arrow-right-light"
-          class="w-5 h-5 ml-1 transition ease-out duration-700 "
+          class="w-5 h-5 ml-1"
       /></nuxt-link>
     </div>
   </div>

@@ -12,6 +12,7 @@
         text-gray-900
         dark:(bg-gray-900
         text-gray-50)
+        transition ease-out duration-700
       "
     >
       <h1 class="font-bold text-3xl">RepeatPay</h1>
@@ -25,6 +26,7 @@
             flex
             rounded-xl
             items-center
+            transition ease-out duration-700
           "
           >Go Back<Icon
             v-if="this.$colorMode.value === 'light'"
