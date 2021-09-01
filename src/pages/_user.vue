@@ -1,5 +1,5 @@
 <template>
-  <div class="grid justify-items-center items-center">
+  <div class="main justify-items-center items-center">
     <div v-if="$fetchState.pending">Fetching...</div>
     <div
       v-else-if="user.seenusername === undefined"
@@ -7,13 +7,15 @@
     >
       <h1 class="font-bold text-3xl">User not found</h1>
     </div>
-    <div v-else class="flex w-full flex-col items-center">
+    <div v-else class="grid justify-items-center">
       <img
         :src="userImage.banner"
         class="w-11/12 h-96 my-5 object-cover rounded-3xl"
         alt=""
       />
-      <div class="grid justify-items-center mb-5 sm:grid-cols-2 gap-4 mx-4 h-full">
+      <div
+        class="grid justify-items-center mb-5 sm:grid-cols-2 gap-4 mx-4 h-full"
+      >
         <div
           class="
             grid
@@ -202,7 +204,7 @@ export default {
 
 <style>
 @media screen and (max-device-width: 950px) {
-  .user{
+  .user {
     @apply grid justify-items-center text-center;
   }
 }
