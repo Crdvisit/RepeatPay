@@ -17,8 +17,8 @@ export default {
   data() {
     return {
       posts: {
-        all: [],
-      },
+        all: []
+      }
     };
   },
   async fetch() {
@@ -28,11 +28,10 @@ export default {
       .fetch();
 
     this.posts = {
-      all: allPosts || [],
+      all: allPosts || []
     };
-  },
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

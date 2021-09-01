@@ -14,7 +14,7 @@
         alt=""
       />
       <div
-        class="grid justify-items-center mb-5 sm:grid-cols-2 gap-4 mx-4 h-full"
+        class="grid justify-items-center sm:grid-cols-2 gap-4 mx-4 h-full"
       >
         <div
           class="
@@ -45,8 +45,9 @@
             bg-gray-300
             rounded-md
             space-y-4
+            text-left
             p-4
-            grid w-full  
+            w-full  
         "
         >
           <h1 class="font-bold text-2xl">Donate</h1>
