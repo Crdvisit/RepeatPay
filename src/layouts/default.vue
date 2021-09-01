@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-gray-100 text-gray-900 dark:(bg-gray-800 text-gray-50)"
+    class="min-h-screen bg-gray-100 text-gray-900 dark:(bg-gray-800 text-gray-50) transition ease-out duration-700"
   >
     <div class="" v-if="$route.name.includes('docs')">
       <DocNavbar />
