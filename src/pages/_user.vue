@@ -13,18 +13,18 @@
         <div
           class="grid sm:flex m-5 p-4 sm:w-full rounded-md bg-gray-300 bg-gray-900 dark:(bg-gray-700 text-gray-50)"
         >
-          <img :src="userImage.profile" class="h-64 mr-4" alt="" />
+          <img :src="userImage.profile" class="h-64 mr-4 rounded-2xl" alt="" />
           <div class="">
             <h1 class="sm:flex w-full grid justify text-3xl font-semibold">
               {{ user.seenusername }}
             </h1>
-            <p class="text-md">{{ user.bio }}</p>
+            <p class="text-md text-gray-300">{{ user.bio }}</p>
           </div>
         </div>
-        <div
-          class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full"
-        >
+        <div class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full">
+
           <h1 class="font-bold text-2xl">Donate</h1>
+
           <div v-if="getPapara">
             <details>
               <summary class="font-light">[ Papara ]</summary>
