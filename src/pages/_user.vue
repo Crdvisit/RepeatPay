@@ -13,9 +13,7 @@
         class="w-11/12 h-96 my-5 object-cover rounded-3xl"
         alt=""
       />
-      <div
-        class="grid justify-items-center sm:grid-cols-2 gap-4 mx-4 h-full"
-      >
+      <div class="grid justify-items-center sm:grid-cols-2 gap-4 mx-4 h-full">
         <div
           class="
             grid
@@ -65,14 +63,16 @@
           <div v-if="getPatreon">
             <h1 class="font-bold text-lg">Support on</h1>
 
-            <button
-              class="px-6 py-4 bg-hex-ff424e mt-2 text-gray-50 rounded-xl flex"
+            <a
+              target="_blank"
+              :href="`https://patreon.com/${user.patreon}`"
+              class="px-6 py-4 bg-hex-ff424e mt-2 text-gray-50 rounded-xl w-max flex"
             >
               <Icon
                 name="patreon"
                 class="fill-current text-gray-50 mr-4 h-5"
               />Patreon
-            </button>
+            </a>
           </div>
         </div>
       </div>
