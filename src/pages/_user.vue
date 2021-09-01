@@ -46,7 +46,7 @@
           <div v-if="getPatreon">
             <details>
               <summary class="font-light">[ Patreon ]</summary>
-            <a :href="getPatreon" class="hover:text-gray-400 transition ease-out duration-500">
+            <a :href="getPatreon" class="hover:text-gray-400 transition ease-out duration-600">
               {{ this.user.patreon }}
             </a>
             </details>
