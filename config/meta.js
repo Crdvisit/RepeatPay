@@ -12,7 +12,7 @@ export default {
         {
             hid: "twitter:title",
             name: "twitter:title",
-            content: "repeatpay.ga",
+            content: "RepeatPay",
         },
         {
             hid: "twitter:description",
@@ -60,12 +60,9 @@ export default {
         if (i.name && !i.property) i.property = i.name
         return i
     }),
-    link: [
-        {
-            rel: "icon",
-            type: "image/x-icon",
-            href: "/favicon.ico",
-        },
-    ]
+    link: [{
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico",
+    }, ]
 }
-

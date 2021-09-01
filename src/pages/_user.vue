@@ -8,33 +8,54 @@
       <h1 class="font-bold text-3xl">User not found</h1>
     </div>
     <div v-else class="flex w-full flex-col items-center">
-      <img :src="userImage.banner" class="rounded-5xl " alt="" />
+      <img :src="userImage.banner" class="object-cover h-48 w-full h-65 rounded-b-3xl" alt="" />
       <div class="grid justify-items-center sm:flex h-full w-full">
         <div
           class="grid sm:flex m-5 p-4 sm:w-full rounded-md bg-gray-300 bg-gray-900 dark:(bg-gray-700 text-gray-50)"
         >
-          <img :src="userImage.profile" class="h-64 mr-4" alt="" />
+          <img :src="userImage.profile" class="h-64 mr-4 rounded-2xl" alt="" />
           <div class="">
             <h1 class="sm:flex w-full grid justify text-3xl font-semibold">
               {{ user.seenusername }}
             </h1>
-            <p class="text-md">{{ user.bio }}</p>
+            <p class="text-md text-gray-300">{{ user.bio }}</p>
           </div>
         </div>
-        <div
-          class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full"
-        >
-          <h1 class="font-bold">Donate</h1>
+        <div class="bg-gray-700 mx-2 sm:mx-0 my-5 sm:mr-5 rounded-md p-4 sm:w-full">
+
+          <h1 class="font-bold text-2xl">Donate</h1>
+
           <div v-if="getPapara">
-            <h1>Papara</h1>
+            <details>
+              <summary class="font-light">[ Papara ]</summary>
             <h1 >
               {{ user.papara }}
             </h1>
+            </details>
           </div>
+
+          <div v-if="getIban">
+            <details>
+              <summary class="font-light">[ Iban ]</summary>
+            <h1 >
+              {{ user.iban }}
+            </h1>
+            </details>
+          </div>
+
+          <div v-if="getPatreon">
+            <details>
+              <summary class="font-light">[ Patreon ]</summary>
+            <a :href="getPatreon" class="hover:text-gray-400 transition ease-out duration-600">
+              {{ this.user.patreon }}
+            </a>
+            </details>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
+  </div>  
 </template>
 
 <script>
@@ -74,6 +95,21 @@ export default {
       }
       else{
         return true
+      }
+    },
+    getIban() {
+      if(this.user.iban === "") {
+        return false
+      } else {
+        return true
+      }
+    },
+    getPatreon() {
+      if(this.user.patreon === "") {
+        return false
+      } else {
+        var url = `https://patreon.com/${this.user.patreon}`
+        return url
       }
     }
   },
