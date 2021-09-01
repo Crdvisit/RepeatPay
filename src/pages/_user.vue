@@ -27,16 +27,35 @@
           <h1 class="font-bold text-2xl">Donate</h1>
           <div v-if="getPapara">
             <details>
-              <summary class="font-light">[Papara]</summary>
+              <summary class="font-light">[ Papara ]</summary>
             <h1 >
               {{ user.papara }}
             </h1>
             </details>
           </div>
+
+          <div v-if="getIban">
+            <details>
+              <summary class="font-light">[ Iban ]</summary>
+            <h1 >
+              {{ user.iban }}
+            </h1>
+            </details>
+          </div>
+
+          <div v-if="getPatreon">
+            <details>
+              <summary class="font-light">[ Patreon ]</summary>
+            <a :href="getPatreon">
+              {{ this.user.patreon }}
+            </a>
+            </details>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
+  </div>  
 </template>
 
 <script>
@@ -76,6 +95,21 @@ export default {
       }
       else{
         return true
+      }
+    },
+    getIban() {
+      if(this.user.iban === "") {
+        return false
+      } else {
+        return true
+      }
+    },
+    getPatreon() {
+      if(this.user.patreon === "") {
+        return false
+      } else {
+        var url = `https://patreon.com/${this.user.patreon}`
+        return url
       }
     }
   },
