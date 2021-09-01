@@ -11,3 +11,5 @@
 
 ## License
   This project is licensed under [Apache](https://en.wikipedia.org/wiki/Apache_License) license.
+## Docs
+[Docs Repository](https://github.com/repeatpay/docs)
