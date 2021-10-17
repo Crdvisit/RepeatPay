@@ -30,7 +30,7 @@ export default {
         alert("Please enter a valid email");
       } else {
         this.$fire.auth
-          .sendPasswordResetEmail(email)
+          .sendPasswordResetEmail(this.email)
           .then(() => {
             alert("Password rest mail sent successfully.");
           })
@@ -43,4 +43,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.txtbox {
+  @apply rounded-xl p-4 text-gray-900 bg-gray-300 focus:outline-none dark:(bg-gray-700 text-gray-50) w-full;
+}
+</style>
