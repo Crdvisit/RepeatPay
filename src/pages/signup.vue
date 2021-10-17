@@ -101,7 +101,9 @@ export default {
                   iban: "",
                   patreon: "",
                   banner: "",
-                  profile: ""
+                  profile: "",
+                  verified: false,
+
                 });
               this.$fire.firestore
                 .collection("usernames")

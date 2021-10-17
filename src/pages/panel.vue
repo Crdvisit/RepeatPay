@@ -1,5 +1,17 @@
 <template>
-  <div class="grid sm:grid-cols-2 h-full">
+  <div v-if="data.verified === false">
+    Please verify your account. We are sended verification email to your email
+    account.
+    <button
+      class="
+          w-full flex justify-center rounded-md p-2 mt-2 bg-green-500
+        "
+      @click="sendVerification()"
+    >
+      Verify your account
+    </button>
+  </div>
+  <div class="grid sm:grid-cols-2 h-full" v-else>
     <div
       class="bg-gray-300 flex flex-col items-start rounded-sm text-gray-900 dark:(bg-gray-700 text-gray-50) m-4 p-4"
     >
@@ -149,6 +161,12 @@ export default {
                 (this.patreon = doc.data().patreon);
             });
         });
+    },
+    sendVerification() {
+      var user = this.$fire.auth.currentUser;
+      this.$fire.auth.sendEmailVerification(user).then(() => {
+        alert("Verification email sent to your email address");
+      });
     }
   },
   computed: {
