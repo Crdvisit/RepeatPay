@@ -1,19 +1,21 @@
 <template>
   <div class="grid justify-items-center items-center">
-    <input
-      type="email"
-      class="txtbox"
-      v-model="email"
-      placeholder="Enter your mail"
-    />
-    <button
-      class="
+    <div class="w-3/6">
+      <input
+        type="email"
+        class="txtbox"
+        v-model="email"
+        placeholder="Enter your mail"
+      />
+      <button
+        class="
           w-full flex justify-center rounded-md p-2 mt-2 bg-green-500
         "
-      @click="sendMail()"
-    >
-      Reset
-    </button>
+        @click="sendMail()"
+      >
+        Reset
+      </button>
+    </div>
   </div>
 </template>
 

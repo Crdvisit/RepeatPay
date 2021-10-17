@@ -25,6 +25,10 @@
         New to RepeatPay?
         <nuxt-link class="text-blue-600 ml-2" to="/signup">Signup</nuxt-link>
       </h1>
+      <h1 class="flex font-semibold">
+        Forgot you password?
+        <nuxt-link class="text-blue-600 ml-2" to="/forgot">Reset from here</nuxt-link>
+      </h1>
     </div>
   </div>
 </template>
