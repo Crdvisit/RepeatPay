@@ -11,7 +11,7 @@
       </h1>
       <div class="space-x-5">
         <a target="_blank" href="https://github.com/repeatpay/repeatpay">Github</a>
-        <a target="_blank" href="/">Discord</a>
+        <a target="_blank" href="https://discord.gg/A2Em6MEt6t">Discord</a>
       </div>
     </div>
   </div>

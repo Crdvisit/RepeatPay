@@ -83,6 +83,9 @@ export default {
       try {
         if (this.password.length < 6) {
           alert(" Password must be at least 6 characters ");
+        }
+        if (this.password.length > 15){
+          alert("anan yok artık")
         } else {
           await this.$fire.auth
             .createUserWithEmailAndPassword(this.email, this.password)
