@@ -84,7 +84,7 @@ export default {
         if (this.password.length < 6) {
           alert(" Password must be at least 6 characters ");
         }
-        else if (this.username.length < 15) {
+        else if (this.username.length > 15) {
           alert("bak knk bug buldun aynen");
         } else {
           await this.$fire.auth
