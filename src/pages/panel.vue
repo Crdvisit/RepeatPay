@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data.verified === false">
+  <div v-if="!isVerified">
     Please verify your account. We are sended verification email to your email
     account.
     <button
@@ -101,6 +101,7 @@ export default {
             (this.patreon = doc.data().patreon);
           this.banner = doc.data().banner;
           this.profile = doc.data().profile;
+          console.log(user);
         });
     }
   },
@@ -163,10 +164,12 @@ export default {
         });
     },
     sendVerification() {
-      var user = this.$fire.auth.currentUser;
-      this.$fire.auth.sendEmailVerification(user).then(() => {
-        alert("Verification email sent to your email address");
-      });
+      this.$fire
+        .auth
+        .currentUser.sendEmailVerification()
+        .then(() => {
+          alert("Verification email sent to your email address");
+        });
     }
   },
   computed: {
@@ -185,6 +188,10 @@ export default {
         color,
         text
       };
+    },
+    isVerified() {
+      var user = this.$fire.auth.currentUser;
+      return user.emailVerified;
     }
   }
 };
